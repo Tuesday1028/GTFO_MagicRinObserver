@@ -1,5 +1,5 @@
 {
-  "internalVersion": 10001,
+  "internalVersion": 10000,
   "version": "1.5.0",
   "changeLog": "1. BUG 修复\\2. 删除无用功能\\3. 重构代码"
 }
