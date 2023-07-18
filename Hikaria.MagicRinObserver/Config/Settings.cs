@@ -83,14 +83,6 @@ namespace MagicRinObserver.Config
             PouncerConsumeEnable = configManager.GetPouncerConsume();
             PouncerConsumeText = configManager.GetPouncerConsumeText();
 
-            /*
-            PlayerUnderAttackEnable = configManager.GetPlayerUnderAttack();
-            PlayerUnderAttackTentacleText = configManager.GetPlayerUnderAttackTentacleText();
-            PlayerUnderAttackShooterProjectileText = configManager.GetPlayerUnderAttackShooterProjectileText();
-            PlayerUnderAttackMeleeText = configManager.GetPlayerUnderAttackMeleeText();
-            PlayerUnderAttackParasiteText = configManager.GetPlayerUnderAttackParasiteText();
-            */
-
             DoorStateEnable = configManager.GetDoorStateSecurityDoorOpen();
             DoorStateSecurityDoorOpenedText = configManager.GetDoorStateSecurityDoorOpenedText();
             DoorStateSecurityDoorClosedText = configManager.GetDoorStateSecurityDoorClosedText();
@@ -98,13 +90,6 @@ namespace MagicRinObserver.Config
             DoorStateSecurityDoorOpenedByPlayerText = configManager.GetDoorStateSecurityDoorOpenedByPlayerText();
             DoorStateSecurityDoorClosedByPlayerText = configManager.GetDoorStateSecurityDoorClosedByPlayerText();
             DoorStateSecurityDoorActivatedByPlayerText = configManager.GetDoorStateSecurityDoorActivatedByPlayerText();
-
-            /*
-            EnemyUnderAttackInstantKillEnable = configManager.GetEnemyUnderAttackInstantKill();
-            EnemyUnderAttackInstantKillSuccessfullyText = configManager.GetEnemyUnderAttackInstantKillSuccessfullyTest();
-            EnemyUnderAttackKillInSecSuccessfullyText = configManager.GetEnemyUnderAttackKillInSecSuccessfullyText();
-            EnemyUnderAttackKillInSecFailedText = configManager.GetEnemyUnderAttackKillInSecFailedText();
-            */
 
             EnemyUnderAttackKillTimerEnable = configManager.GetEnemyUnderAttackKillTimer();
             EnemyUnderAttackKillTimerText = configManager.GetEnemyUnderAttackKillTimerText();

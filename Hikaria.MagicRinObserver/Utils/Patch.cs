@@ -78,7 +78,7 @@ namespace MagicRinObserver.Utils
                 }
                 catch (Exception ex)
                 {
-                    Logs.LogError(("未能获得 ({0}) 的前缀补丁方法: {1}", text2, ex));
+                    Logs.LogError(string.Format("未能获得 ({0}) 的前缀补丁方法: {1}", text2, ex));
                 }
             }
             if ((patchType & PatchType.Postfix) > 0)
@@ -89,7 +89,7 @@ namespace MagicRinObserver.Utils
                 }
                 catch (Exception ex2)
                 {
-                    Logs.LogError(("未能获得 ({0}) 的后缀补丁方法: {1}", text2, ex2));
+                    Logs.LogError(string.Format("未能获得 ({0}) 的后缀补丁方法: {1}", text2, ex2));
                 }
             }
             try
@@ -109,7 +109,7 @@ namespace MagicRinObserver.Utils
             }
             catch (Exception ex3)
             {
-                Logs.LogError(("无法为 {0} 方法打补丁: {1}", text2, ex3));
+                Logs.LogError(string.Format("无法为 {0} 方法打补丁: {1}", text2, ex3));
             }
         }
 

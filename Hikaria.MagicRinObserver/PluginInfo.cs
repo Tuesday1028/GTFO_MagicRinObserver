@@ -10,6 +10,6 @@
 
         public const string PLUGIN_AUTHOR = "<#27C6E0>花城あんず";
 
-        public const int INTERNAL_VERSION = 10000;
+        public const int PLUGIN_INTERNAL_VERSION = 10000;
     }
 }
