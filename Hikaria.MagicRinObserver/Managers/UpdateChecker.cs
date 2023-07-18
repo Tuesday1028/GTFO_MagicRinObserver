@@ -16,10 +16,9 @@ namespace MagicRinObserver.Managers
             GameEventLogManager.AddLog(EntryPoint.Settings.Language.CHECKING_UPDATE);
             JsonConverter converter = new();
             Version latestVersion = converter.Deserialize<Version>(request.downloadHandler.GetText());
-            if (latestVersion.internalVersion > DetectedLatestVersion)
+            if (latestVersion.internalVersion > PluginInfo.PLUGIN_INTERNAL_VERSION)
             {
                 GameEventLogManager.AddLog(string.Format(EntryPoint.Settings.Language.DETECT_LATER_VERSION, latestVersion.version, latestVersion.changeLog).Split('\\'));
-                DetectedLatestVersion = latestVersion.internalVersion;
             }
             else
             {
@@ -52,8 +51,6 @@ namespace MagicRinObserver.Managers
         }
 
         private static bool isLogged;
-
-        private static int DetectedLatestVersion = PluginInfo.INTERNAL_VERSION;
 
         private const string CheckUpdateURL = "https://raw.githubusercontent.com/Hikaria0108/GTFO_MagicRinObserver/main/latestVersion.json";
     }
