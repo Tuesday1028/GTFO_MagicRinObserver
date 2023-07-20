@@ -8,7 +8,7 @@ namespace MagicRinObserver.Lang
         {
             get
             {
-                return "<color=orange>[MagicRinObserver]</color> 可用命令如下:";
+                return "<color=orange>[MagicRinObserver]</color> 可用指令如下:";
             }
         }
 
@@ -25,6 +25,14 @@ namespace MagicRinObserver.Lang
             get
             {
                 return "<color=orange>[MagicRinObserver]</color> 输入 '/magicrin commonds' 可查看所有指令";
+            }
+        }
+
+        public override string COMMAND_HELP
+        { 
+            get
+            {
+                return "<color=orange>[MagicRinObserver]</color> 指令 {0} 帮助信息:";
             }
         }
 
@@ -116,86 +124,6 @@ namespace MagicRinObserver.Lang
             }
         }
 
-        public override string NOISE_NONE
-        {
-            get
-            {
-                return "间接";
-            }
-        }
-
-        public override string NOISE_SILENT
-        {
-            get
-            {
-                return "手电光照";
-            }
-        }
-
-        public override string NOISE_SNEAK
-        {
-            get
-            {
-                return "潜行";
-            }
-        }
-
-        public override string NOISE_WALK
-        {
-            get
-            {
-                return "行走";
-            }
-        }
-
-        public override string NOISE_RUN
-        {
-            get
-            {
-                return "跑动";
-            }
-        }
-
-        public override string NOISE_JUMP
-        {
-            get
-            {
-                return "跳跃";
-            }
-        }
-
-        public override string NOISE_MELEEHIT
-        {
-            get
-            {
-                return "近战";
-            }
-        }
-
-        public override string NOISE_SHOOT
-        {
-            get
-            {
-                return "射击";
-            }
-        }
-
-        public override string NOISE_DECOY
-        {
-            get
-            {
-                return "诱饵";
-            }
-        }
-
-        public override string UNKNOWN
-        {
-            get
-            {
-                return "未知";
-            }
-        }
-
         public override string SELF
         {
             get
@@ -220,11 +148,75 @@ namespace MagicRinObserver.Lang
             }
         }
 
-        public override string NOISE_LOUDLANDING
+        public override string ENABLED
         {
             get
             {
-                return "落地";
+                return "启用";
+            }
+        }
+
+        public override string DISABLED
+        {
+            get
+            {
+                return "禁用";
+            }
+        }
+
+        public override string DETECTION_ENEMYWAKEUP
+        {
+            get
+            {
+                return "敌人惊醒检测";
+            }
+        }
+
+        public override string DETECTION_PLAYERSLIP
+        {
+            get
+            {
+                return "玩家跌落伤害检测";
+            }
+        }
+
+        public override string DETECTION_FRIENDLYFIRE
+        {
+            get
+            {
+                return "队友伤害检测";
+            }
+        }
+
+        public override string DETECTION_GIVERESOURCE
+        {
+            get
+            {
+                return "资源使用检测";
+            }
+        }
+
+        public override string DETECTION_POUNCERCONSUME
+        {
+            get
+            {
+                return "狗吞玩家检测";
+            }
+        }
+
+        public override string DETECTION_KILLTIMER
+        {
+            get
+            {
+                return "敌人击杀计时";
+            }
+        }
+
+        public override string DETECTION_DOORSTATE
+        {
+            get
+            {
+                return "安全门状态检测";
             }
         }
     }

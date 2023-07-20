@@ -33,8 +33,8 @@ namespace MagicRinObserver.Patches
             {
                 bool enable = ChatCommand.StringToBool(parameters[0]);
                 EntryPoint.Settings.GiveResourceEnable = enable;
-                GameEventLogManager.AddLog(string.Format("<color=orange>[MagicRinObserver]</color> <color={0}>资源使用检测已{1}</color>", EntryPoint.Settings.GiveResourceEnable ? "green" : "red", EntryPoint.Settings.GiveResourceEnable ? "启用" : "禁用"));
-            }), "[on|off], 启用|禁用 资源使用检测");
+                GameEventLogManager.AddLog(string.Format(string.Concat("<color=orange>[MagicRinObserver]</color> <color={0}>", EntryPoint.Settings.Language.DETECTION_GIVERESOURCE, " {1}</color>"), EntryPoint.Settings.GiveResourceEnable ? "green" : "red", EntryPoint.Settings.GiveResourceEnable ? EntryPoint.Settings.Language.ENABLED : EntryPoint.Settings.Language.DISABLED));
+            }), string.Concat("[on|off], ", EntryPoint.Settings.Language.ENABLED, "|", EntryPoint.Settings.Language.DISABLED, " ", EntryPoint.Settings.Language.DETECTION_GIVERESOURCE));
         }
 
         private static void PlayerAgent__GiveAmmoRel__Prefix()

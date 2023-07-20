@@ -7,11 +7,11 @@ using SNetwork;
 
 namespace MagicRinObserver.Patches
 {
-    internal class EnemyAwake : Patch
+    internal class EnemyWakeup : Patch
     {
         public override string Name { get; } = "EnemyAwake";
 
-        public static EnemyAwake Instance { get; private set; }
+        public static EnemyWakeup Instance { get; private set; }
 
         public override void Initialize()
         {
@@ -26,8 +26,8 @@ namespace MagicRinObserver.Patches
             {
                 bool enable = ChatCommand.StringToBool(parameters[0]);
                 EntryPoint.Settings.EnemyWakeupEnable = enable;
-                GameEventLogManager.AddLog(string.Format("<color=orange>[MagicRinObserver]</color> <color={0}>敌人惊醒检测已{1}</color>", EntryPoint.Settings.EnemyWakeupEnable ? "green" : "red", EntryPoint.Settings.EnemyWakeupEnable ? "启用" : "禁用"));
-            }), "[on|off], 启用|禁用 敌人惊醒检测");
+                GameEventLogManager.AddLog(string.Format(string.Concat("<color=orange>[MagicRinObserver]</color> <color={0}>", EntryPoint.Settings.Language.DETECTION_ENEMYWAKEUP, " {1}</color>"), EntryPoint.Settings.EnemyWakeupEnable ? "green" : "red", EntryPoint.Settings.EnemyWakeupEnable ? EntryPoint.Settings.Language.ENABLED : EntryPoint.Settings.Language.DISABLED));
+            }), string.Concat("[on|off], ", EntryPoint.Settings.Language.ENABLED, "|", EntryPoint.Settings.Language.DISABLED, " ", EntryPoint.Settings.Language.DETECTION_ENEMYWAKEUP));
         }
 
         private static void EnemyDetection__UpdateHibernationDetection__Postfix(EnemyDetection __instance, AgentTarget target, bool __result)

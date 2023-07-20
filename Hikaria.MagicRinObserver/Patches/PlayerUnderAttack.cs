@@ -25,8 +25,8 @@ namespace MagicRinObserver.Patches
             {
                 bool enable = ChatCommand.StringToBool(parameters[0]);
                 EntryPoint.Settings.PouncerConsumeEnable = enable;
-                GameEventLogManager.AddLog(string.Format("<color=orange>[MagicRinObserver]</color> <color={0}>玩家被狗吞检测已{1}</color>", EntryPoint.Settings.PouncerConsumeEnable ? "green" : "red", EntryPoint.Settings.PouncerConsumeEnable ? "启用" : "禁用"));
-            }), "[on|off], 启用|禁用 玩家被狗吞检测");
+                GameEventLogManager.AddLog(string.Format(string.Concat("<color=orange>[MagicRinObserver]</color> <color={0}>", EntryPoint.Settings.Language.DETECTION_POUNCERCONSUME, " {1}</color>"), EntryPoint.Settings.PouncerConsumeEnable ? "green" : "red", EntryPoint.Settings.PouncerConsumeEnable ? EntryPoint.Settings.Language.ENABLED : EntryPoint.Settings.Language.DISABLED));
+            }), string.Concat("[on|off], ", EntryPoint.Settings.Language.ENABLED, "|", EntryPoint.Settings.Language.DISABLED, " ", EntryPoint.Settings.Language.DETECTION_POUNCERCONSUME));
         }
 
         private static void PouncerBehaviour__RequestConsume__Postfix(int playerSlotIndex)

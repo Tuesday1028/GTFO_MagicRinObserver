@@ -24,16 +24,8 @@ namespace MagicRinObserver.Patches
             {
                 bool enable = ChatCommand.StringToBool(parameters[0]);
                 EntryPoint.Settings.SlipEnable = enable;
-                GameEventLogManager.AddLog(string.Format("<color=orange>[MagicRinObserver]</color> <color={0}>玩家摔倒检测已{1}</color>", EntryPoint.Settings.SlipEnable ? "green" : "red", EntryPoint.Settings.SlipEnable ? "启用" : "禁用"));
-            }), "[on|off], 启用|禁用 玩家摔倒检测");
-        }
-
-        private static void Dam_PlayerDamageLocal__ReceiveFallDamage__Postfix(Dam_PlayerDamageBase __instance, pMiniDamageData data)
-        {
-            if (SNet.IsMaster && EntryPoint.Settings.SlipEnable)
-            {
-                OnFallDamage(__instance, data);
-            }
+                GameEventLogManager.AddLog(string.Format(string.Concat("<color=orange>[MagicRinObserver]</color> <color={0}>", EntryPoint.Settings.Language.DETECTION_PLAYERSLIP, " {1}</color>"), EntryPoint.Settings.SlipEnable ? "green" : "red", EntryPoint.Settings.SlipEnable ? EntryPoint.Settings.Language.ENABLED : EntryPoint.Settings.Language.DISABLED));
+            }), string.Concat("[on|off], ", EntryPoint.Settings.Language.ENABLED, "|", EntryPoint.Settings.Language.DISABLED, " ", EntryPoint.Settings.Language.DETECTION_PLAYERSLIP));
         }
 
         private static void Dam_PlayerDamageBase__ReceiveFallDamage__Postfix(Dam_PlayerDamageBase __instance, pMiniDamageData data)

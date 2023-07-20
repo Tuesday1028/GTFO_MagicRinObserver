@@ -28,6 +28,14 @@ namespace MagicRinObserver.Lang
             }
         }
 
+        public override string COMMAND_HELP
+        {
+            get
+            {
+                return "<color=orange>[MagicRinObserver]</color> Command {0} help info:";
+            }
+        }
+
         public override string COMMAND_WRONG_INPUT
         {
             get
@@ -116,86 +124,6 @@ namespace MagicRinObserver.Lang
             }
         }
 
-        public override string NOISE_NONE
-        {
-            get
-            {
-                return "indirect";
-            }
-        }
-
-        public override string NOISE_SILENT
-        {
-            get
-            {
-                return "silent";
-            }
-        }
-
-        public override string NOISE_SNEAK
-        {
-            get
-            {
-                return "sneak";
-            }
-        }
-
-        public override string NOISE_WALK
-        {
-            get
-            {
-                return "walk";
-            }
-        }
-
-        public override string NOISE_RUN
-        {
-            get
-            {
-                return "run";
-            }
-        }
-
-        public override string NOISE_JUMP
-        {
-            get
-            {
-                return "jump";
-            }
-        }
-
-        public override string NOISE_MELEEHIT
-        {
-            get
-            {
-                return "melee hit";
-            }
-        }
-
-        public override string NOISE_SHOOT
-        {
-            get
-            {
-                return "shoot";
-            }
-        }
-
-        public override string NOISE_DECOY
-        {
-            get
-            {
-                return "decoy";
-            }
-        }
-
-        public override string UNKNOWN
-        {
-            get
-            {
-                return "unknown";
-            }
-        }
-
         public override string SELF
         {
             get
@@ -208,7 +136,7 @@ namespace MagicRinObserver.Lang
         {
             get
             {
-                return "ammo";
+                return "tool";
             }
         }
 
@@ -216,15 +144,79 @@ namespace MagicRinObserver.Lang
         {
             get
             {
-                return "tool";
+                return "weapon";
             }
         }
 
-        public override string NOISE_LOUDLANDING
+        public override string ENABLED
         {
             get
             {
-                return "loud landing";
+                return "enabled";
+            }
+        }
+
+        public override string DISABLED
+        {
+            get
+            {
+                return "disabled";
+            }
+        }
+
+        public override string DETECTION_ENEMYWAKEUP
+        {
+            get
+            {
+                return "Enemy wakeup detection";
+            }
+        }
+
+        public override string DETECTION_PLAYERSLIP
+        {
+            get
+            {
+                return "Player slip detection";
+            }
+        }
+
+        public override string DETECTION_FRIENDLYFIRE
+        {
+            get
+            {
+                return "Friendly fire detection";
+            }
+        }
+
+        public override string DETECTION_GIVERESOURCE
+        {
+            get
+            {
+                return "Give resource detection";
+            }
+        }
+
+        public override string DETECTION_POUNCERCONSUME
+        {
+            get
+            {
+                return "Pouncer consume detection";
+            }
+        }
+
+        public override string DETECTION_KILLTIMER
+        {
+            get
+            {
+                return "Kill timer";
+            }
+        }
+
+        public override string DETECTION_DOORSTATE
+        {
+            get
+            {
+                return "Security door state detection";
             }
         }
     }

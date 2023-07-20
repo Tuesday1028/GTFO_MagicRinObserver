@@ -26,8 +26,8 @@ namespace MagicRinObserver.Patches
             {
                 bool enable = ChatCommand.StringToBool(parameters[0]);
                 EntryPoint.Settings.FriendlyFireEnable = enable;
-                GameEventLogManager.AddLog(string.Format("<color=orange>[MagicRinObserver]</color> <color={0}>队友伤害检测已{1}</color>", EntryPoint.Settings.FriendlyFireEnable ? "green" : "red", EntryPoint.Settings.FriendlyFireEnable ? "启用" : "禁用"));
-            }), "[on|off], 启用|禁用 队友伤害检测");
+                GameEventLogManager.AddLog(string.Format(string.Concat("<color=orange>[MagicRinObserver]</color> <color={0}>", EntryPoint.Settings.Language.DETECTION_FRIENDLYFIRE, " {1}</color>"), EntryPoint.Settings.FriendlyFireEnable ? "green" : "red", EntryPoint.Settings.FriendlyFireEnable ? EntryPoint.Settings.Language.ENABLED : EntryPoint.Settings.Language.DISABLED));
+            }), string.Concat("[on|off], ", EntryPoint.Settings.Language.ENABLED, "|", EntryPoint.Settings.Language.DISABLED, " ", EntryPoint.Settings.Language.DETECTION_FRIENDLYFIRE));
         }
 
         private static void CreateThread(SNet_Player fromPlayer, SNet_Player toPlayer, float damage, string threadName, bool add)

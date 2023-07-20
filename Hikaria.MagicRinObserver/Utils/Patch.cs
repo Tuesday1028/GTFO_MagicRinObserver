@@ -119,7 +119,6 @@ namespace MagicRinObserver.Utils
             Logs.LogError("Harmony: UnpatchSelf!");
         }
 
-        [Flags]
         public enum PatchType : byte
         {
             Prefix = 1,

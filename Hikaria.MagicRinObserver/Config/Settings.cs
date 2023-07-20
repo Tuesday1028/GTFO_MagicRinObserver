@@ -37,10 +37,6 @@ namespace MagicRinObserver.Config
 
         public bool DoorStateEnable = true;
 
-        public string EnemyUnderAttackInstantKillSuccessfullyText = "{0} 使用 {1} 命中 {2} 秒杀了 {3}";
-
-        public string EnemyUnderAttackKillInSecSuccessfullyText = "{0} 使用 {1} 命中 {2} 次 秒杀了 {3}";
-
         public string EnemyUnderAttackKillInSecFailedText = "{0} 秒杀 {1} 失败";
 
         public bool EnemyUnderAttackInstantKillEnable = true;

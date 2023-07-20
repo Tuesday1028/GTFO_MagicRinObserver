@@ -144,7 +144,7 @@ namespace MagicRinObserver.Config
         {
             get
             {
-                return "默认[开启|关闭]玩家摔倒检测提示功能，接受的值：[true|false]";
+                return "默认[开启|关闭]玩家跌落伤害检测提示功能，接受的值：[true|false]";
             }
         }
 
@@ -160,7 +160,7 @@ namespace MagicRinObserver.Config
         {
             get
             {
-                return "自定义玩家摔倒检测的提示语句，{0}为玩家名字，{1}为损失的血量";
+                return "自定义玩家跌落伤害检测的提示语句，{0}为玩家名字，{1}为损失的血量";
             }
         }
 

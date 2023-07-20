@@ -2,14 +2,10 @@
 using BepInEx.Unity.IL2CPP;
 using Il2CppInterop.Runtime.Injection;
 using MagicRinObserver.Config;
-using MagicRinObserver.Lang;
 using MagicRinObserver.Managers;
 using MagicRinObserver.Patches;
 using MagicRinObserver.Utils;
 using Player;
-using System;
-using System.Collections.Generic;
-
 namespace MagicRinObserver
 {
     [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
@@ -34,7 +30,7 @@ namespace MagicRinObserver
         {
             Patch.RegisterPatch<ChatCommand>();
             Patch.RegisterPatch<PlayerJoinLobby>();
-            Patch.RegisterPatch<EnemyAwake>();
+            Patch.RegisterPatch<EnemyWakeup>();
             Patch.RegisterPatch<FriendlyFire>();
             Patch.RegisterPatch<PlayerSlip>();
             Patch.RegisterPatch<SecurityDoorState>();
@@ -45,8 +41,11 @@ namespace MagicRinObserver
 
         private void Init()
         {
-            _settings = _settings = new Settings();
-            _settings.Setup();
+            if (Instance._settings == null)
+            {
+                Instance._settings = new Settings();
+            }
+            Instance._settings.Setup();
             TranslateManager.Init();
         }
 

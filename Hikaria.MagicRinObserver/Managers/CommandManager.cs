@@ -7,7 +7,7 @@ namespace MagicRinObserver.Managers
     {
         public CommandManager(string prefix)
         {
-            _prefix = prefix;
+            _prefix = prefix.ToLower();
             AddCommand("commands", new Action<string[]>(delegate (string[] parameters)
             {
                 PrintAllCommandHelps();
@@ -22,9 +22,9 @@ namespace MagicRinObserver.Managers
         {
             GameEventLogManager.AddLog(EntryPoint.Settings.Language.AVAILABLE_COMMANDS);
             List<string> helps = new();
-            foreach (var command in _commandHelps)
+            foreach (var commandHelp in _commandHelps)
             {
-                helps.Add(string.Format("{0} {1} {2}", _prefix, command.Key, command.Value));
+                helps.Add(string.Format("{0} {1} {2}", _prefix, commandHelp.Key, commandHelp.Value));
             }
             GameEventLogManager.AddLog(helps.ToArray());
         }
@@ -33,7 +33,7 @@ namespace MagicRinObserver.Managers
         {
             if (_commandHelps.TryGetValue(key, out string commandHelp))
             {
-                GameEventLogManager.AddLog(string.Format("<color=orange>[MagicRinObserver]</color> 指令 {0} 帮助信息:", key));
+                GameEventLogManager.AddLog(string.Format(EntryPoint.Settings.Language.COMMAND_HELP, key));
                 GameEventLogManager.AddLog(string.Format("{0} {1} {2}", _prefix, key, commandHelp));
             }
             else if (key != null)
@@ -46,6 +46,11 @@ namespace MagicRinObserver.Managers
         {
             try
             {
+                key = key.ToLower();
+                for (int i = 0; i< parameters.Length; i++)
+                {
+                    parameters[i] = parameters[i].ToLower();
+                }
                 if (_commands.TryGetValue(key, out Action<string[]> commandCallback))
                 {
                     ExcuteCommand(commandCallback, parameters);

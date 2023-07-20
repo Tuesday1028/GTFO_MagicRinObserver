@@ -12,6 +12,7 @@ namespace MagicRinObserver.Config
         static ConfigManager()
         {
             Logs.LogDebug("正在加载配置文件...");
+
             ConfigFile configFile = new(string.Concat(Paths.ConfigPath, "\\MagicRinObserver\\MagicRinObserver.cfg"), true);
 
             language = configFile.Bind(ConfigDescription.SETTINGS_COMMON, ConfigDescription.LANGUAGE_NAME, Language.zh_CN, ConfigDescription.LANGUAGE_DESC);

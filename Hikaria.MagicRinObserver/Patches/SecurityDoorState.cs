@@ -26,8 +26,8 @@ namespace MagicRinObserver.Patches
             {
                 bool enable = ChatCommand.StringToBool(parameters[0]);
                 EntryPoint.Settings.DoorStateEnable = enable;
-                GameEventLogManager.AddLog(string.Format("<color=orange>[MagicRinObserver]</color> <color={0}>安全门状态检测已{1}</color>", EntryPoint.Settings.DoorStateEnable ? "green" : "red", EntryPoint.Settings.DoorStateEnable ? "启用" : "禁用"));
-            }), "[on|off], 启用|禁用 安全门状态检测");
+                GameEventLogManager.AddLog(string.Format(string.Concat("<color=orange>[MagicRinObserver]</color> <color={0}>", EntryPoint.Settings.Language.DETECTION_DOORSTATE, " {1}</color>"), EntryPoint.Settings.DoorStateEnable ? "green" : "red", EntryPoint.Settings.DoorStateEnable ? EntryPoint.Settings.Language.ENABLED : EntryPoint.Settings.Language.DISABLED));
+            }), string.Concat("[on|off], ", EntryPoint.Settings.Language.ENABLED, "|", EntryPoint.Settings.Language.DISABLED, " ", EntryPoint.Settings.Language.DETECTION_DOORSTATE));
         }
 
         private static void OnDoorInteract(pDoorInteraction interaction, LG_SecurityDoor door)
@@ -44,7 +44,7 @@ namespace MagicRinObserver.Patches
             string zone = door.LinkedToZoneData.Alias.ToString();
             if (interaction.type == eDoorInteractionType.ActivateChainedPuzzle)
             {
-                if (interaction.isPlayerIntertaction || localInteract || !fromPlayer.NickName.IsNullOrWhiteSpace())
+                if (interaction.isPlayerIntertaction || localInteract || !string.IsNullOrEmpty(fromPlayer.NickName))
                 {
                     ChatManager.AddQueueInSeparate(string.Format(EntryPoint.Settings.DoorStateSecurityDoorActivatedByPlayerText, fromPlayer.NickName, zone));
                 }
@@ -55,7 +55,7 @@ namespace MagicRinObserver.Patches
             }
             else if (interaction.type == eDoorInteractionType.Open)
             {
-                if (interaction.isPlayerIntertaction || localInteract || !fromPlayer.NickName.IsNullOrWhiteSpace())
+                if (interaction.isPlayerIntertaction || localInteract || !string.IsNullOrEmpty(fromPlayer.NickName))
                 {
                     ChatManager.AddQueueInSeparate(string.Format(EntryPoint.Settings.DoorStateSecurityDoorOpenedByPlayerText, fromPlayer.NickName, zone));
                 }
@@ -66,7 +66,7 @@ namespace MagicRinObserver.Patches
             }
             else if (interaction.type == eDoorInteractionType.Close)
             {
-                if (interaction.isPlayerIntertaction || localInteract || !fromPlayer.NickName.IsNullOrWhiteSpace())
+                if (interaction.isPlayerIntertaction || localInteract || !string.IsNullOrEmpty(fromPlayer.NickName))
                 {
                     ChatManager.AddQueueInSeparate(string.Format(EntryPoint.Settings.DoorStateSecurityDoorClosedByPlayerText, fromPlayer.NickName, zone));
                 }
