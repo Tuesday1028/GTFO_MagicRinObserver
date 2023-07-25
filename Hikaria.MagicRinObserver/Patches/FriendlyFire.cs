@@ -1,11 +1,11 @@
-﻿using MagicRinObserver.Managers;
-using MagicRinObserver.Utils;
+﻿using Hikaria.MagicRinObserver.Managers;
+using Hikaria.MagicRinObserver.Utils;
 using SNetwork;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace MagicRinObserver.Patches
+namespace Hikaria.MagicRinObserver.Patches
 {
     internal class FriendlyFire : Patch
     {

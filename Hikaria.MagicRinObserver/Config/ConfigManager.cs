@@ -1,11 +1,11 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
-using MagicRinObserver.Lang;
-using MagicRinObserver.Utils;
+using Hikaria.MagicRinObserver.Lang;
+using Hikaria.MagicRinObserver.Utils;
 using System;
 using System.IO;
 
-namespace MagicRinObserver.Config
+namespace Hikaria.MagicRinObserver.Config
 {
     internal class ConfigManager
     {
@@ -293,10 +293,10 @@ namespace MagicRinObserver.Config
 
         public static ConfigEntry<bool> enemyUnderAttackKillTimer;
 
-        public enum Language
+        public enum Language : byte
         {
-            en_US = 1,
-            zh_CN = 2
+            en_US,
+            zh_CN
         }
     }
 }

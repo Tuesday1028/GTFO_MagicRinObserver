@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using HarmonyLib;
 
-namespace MagicRinObserver.Utils
+namespace Hikaria.MagicRinObserver.Utils
 {
     internal abstract class Patch
     {

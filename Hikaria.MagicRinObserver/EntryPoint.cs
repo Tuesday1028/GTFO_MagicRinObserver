@@ -1,12 +1,12 @@
 ﻿using BepInEx;
 using BepInEx.Unity.IL2CPP;
 using Il2CppInterop.Runtime.Injection;
-using MagicRinObserver.Config;
-using MagicRinObserver.Managers;
-using MagicRinObserver.Patches;
-using MagicRinObserver.Utils;
-using Player;
-namespace MagicRinObserver
+using Hikaria.MagicRinObserver.Config;
+using Hikaria.MagicRinObserver.Managers;
+using Hikaria.MagicRinObserver.Patches;
+using Hikaria.MagicRinObserver.Utils;
+
+namespace Hikaria.MagicRinObserver
 {
     [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
     internal class EntryPoint : BasePlugin
@@ -52,14 +52,6 @@ namespace MagicRinObserver
         public static EntryPoint Instance { get; private set; }
 
         private Settings _settings;
-
-        public static PlayerAgent LocalPlayer
-        {
-            get
-            {
-                return PlayerManager.GetLocalPlayerAgent();
-            }
-        }
 
         public static Settings Settings
         {

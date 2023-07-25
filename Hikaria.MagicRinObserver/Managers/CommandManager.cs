@@ -1,7 +1,7 @@
-﻿using MagicRinObserver.Patches;
-using MagicRinObserver.Utils;
+﻿using Hikaria.MagicRinObserver.Patches;
+using Hikaria.MagicRinObserver.Utils;
 
-namespace MagicRinObserver.Managers
+namespace Hikaria.MagicRinObserver.Managers
 {
     internal sealed class CommandManager
     {

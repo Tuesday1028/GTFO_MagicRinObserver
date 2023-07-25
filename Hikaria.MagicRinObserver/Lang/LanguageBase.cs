@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MagicRinObserver.Lang
+namespace Hikaria.MagicRinObserver.Lang
 {
     public abstract class LanguageBase
     {

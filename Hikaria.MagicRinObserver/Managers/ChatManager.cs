@@ -1,10 +1,10 @@
-﻿using MagicRinObserver.Ext;
+﻿using Hikaria.MagicRinObserver.Ext;
 using Player;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MagicRinObserver.Managers
+namespace Hikaria.MagicRinObserver.Managers
 {
     internal sealed class ChatManager : MonoBehaviour
     {
@@ -17,11 +17,10 @@ namespace MagicRinObserver.Managers
         {
             if (queue.Count != 0)
             {
-                if (!string.IsNullOrEmpty(queue.Peek()))
+                lock (queue)
                 {
-                    Speak(queue.Peek());
+                    Speak(queue.Dequeue());
                 }
-                queue.Dequeue();
             }
         }
 
@@ -42,7 +41,11 @@ namespace MagicRinObserver.Managers
             }
             else
             {
-                Instance.queue.Enqueue(msg);
+                lock (Instance.queue)
+                {
+                    Instance.queue.Enqueue(msg);
+                }
+
             }
         }
 

@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace MagicRinObserver.Utils
+namespace Hikaria.MagicRinObserver.Utils
 {
     internal class JsonConverter
     {

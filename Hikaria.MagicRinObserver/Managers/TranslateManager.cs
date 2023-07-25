@@ -1,8 +1,8 @@
 ﻿using Agents;
 using GameData;
-using MagicRinObserver.Utils;
+using Hikaria.MagicRinObserver.Utils;
 
-namespace MagicRinObserver.Managers
+namespace Hikaria.MagicRinObserver.Managers
 {
     internal static class TranslateManager
     {

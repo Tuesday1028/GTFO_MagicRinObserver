@@ -1,11 +1,11 @@
 ﻿using Agents;
 using Enemies;
 using SNetwork;
-using MagicRinObserver.Utils;
+using Hikaria.MagicRinObserver.Utils;
 using Player;
-using MagicRinObserver.Managers;
+using Hikaria.MagicRinObserver.Managers;
 
-namespace MagicRinObserver.Patches
+namespace Hikaria.MagicRinObserver.Patches
 {
     internal class PlayerUnderAttack : Patch
     {

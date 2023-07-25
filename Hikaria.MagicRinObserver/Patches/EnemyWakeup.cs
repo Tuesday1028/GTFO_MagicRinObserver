@@ -1,15 +1,15 @@
 ﻿using Agents;
 using Enemies;
-using MagicRinObserver.Managers;
-using MagicRinObserver.Utils;
+using Hikaria.MagicRinObserver.Managers;
+using Hikaria.MagicRinObserver.Utils;
 using Player;
 using SNetwork;
 
-namespace MagicRinObserver.Patches
+namespace Hikaria.MagicRinObserver.Patches
 {
     internal class EnemyWakeup : Patch
     {
-        public override string Name { get; } = "EnemyAwake";
+        public override string Name { get; } = "EnemyWakeup";
 
         public static EnemyWakeup Instance { get; private set; }
 

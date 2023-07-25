@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MagicRinObserver.Config
+namespace Hikaria.MagicRinObserver.Config
 {
     internal class ConfigDescription
     {

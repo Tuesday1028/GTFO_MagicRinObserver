@@ -1,15 +1,15 @@
 ﻿using Agents;
 using Gear;
 using LevelGeneration;
-using MagicRinObserver.Managers;
-using MagicRinObserver.Utils;
+using Hikaria.MagicRinObserver.Managers;
+using Hikaria.MagicRinObserver.Utils;
 using Player;
 using SNetwork;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace MagicRinObserver.Patches
+namespace Hikaria.MagicRinObserver.Patches
 {
     internal class GiveResource : Patch
     {
@@ -228,8 +228,7 @@ namespace MagicRinObserver.Patches
             private int _num = 1;
         }
 
-        [Flags]
-        public enum ResourcePackType
+        public enum ResourcePackType : byte
         {
             Medipack,
             AmmoPack,

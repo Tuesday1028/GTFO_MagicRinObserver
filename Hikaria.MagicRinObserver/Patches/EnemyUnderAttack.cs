@@ -1,12 +1,12 @@
 ﻿using Agents;
 using Enemies;
-using MagicRinObserver.Managers;
-using MagicRinObserver.Utils;
+using Hikaria.MagicRinObserver.Managers;
+using Hikaria.MagicRinObserver.Utils;
 using SNetwork;
 using System.Diagnostics;
-using static MagicRinObserver.Managers.TranslateManager;
+using static Hikaria.MagicRinObserver.Managers.TranslateManager;
 
-namespace MagicRinObserver.Patches
+namespace Hikaria.MagicRinObserver.Patches
 {
     internal class EnemyUnderAttack : Patch
     {
@@ -33,7 +33,7 @@ namespace MagicRinObserver.Patches
 
         private static void Dam_EnemyDamageBase__ProcessReceivedDamage__Prefix(Dam_EnemyDamageBase __instance, Agent damageSource, float damage)
         {
-            if (SNet.IsMaster && EntryPoint.Settings.EnemyUnderAttackKillTimerEnable)
+            if (SNet.IsMaster && EntryPoint.Settings.EnemyUnderAttackKillTimerEnable && damageSource != null)
             {
                 StartKillTimer(__instance, damageSource, damage);
             }

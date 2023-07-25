@@ -1,11 +1,10 @@
-﻿using BepInEx;
-using LevelGeneration;
-using MagicRinObserver.Managers;
-using MagicRinObserver.Utils;
+﻿using LevelGeneration;
+using Hikaria.MagicRinObserver.Managers;
+using Hikaria.MagicRinObserver.Utils;
 using SNetwork;
 using System;
 
-namespace MagicRinObserver.Patches
+namespace Hikaria.MagicRinObserver.Patches
 {
     internal class SecurityDoorState : Patch
     {

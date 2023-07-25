@@ -1,7 +1,6 @@
-﻿using MagicRinObserver.Lang;
-using MagicRinObserver.Utils;
+﻿using Hikaria.MagicRinObserver.Lang;
 
-namespace MagicRinObserver.Config
+namespace Hikaria.MagicRinObserver.Config
 {
     internal class Settings
     {

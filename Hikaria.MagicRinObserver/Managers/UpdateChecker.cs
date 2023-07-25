@@ -1,19 +1,12 @@
-﻿using MagicRinObserver.Utils;
+﻿using Hikaria.MagicRinObserver.Utils;
 using UnityEngine.Networking;
 
-namespace MagicRinObserver.Managers
+namespace Hikaria.MagicRinObserver.Managers
 {
     internal static class UpdateChecker
     {
         private static void DoCheckUpdate(UnityWebRequest request)
         {
-            if (!isLogged)
-            {
-                GameEventLogManager.AddLog(string.Format(EntryPoint.Settings.Language.CURRENT_VERSION, PluginInfo.PLUGIN_VERSION));
-                isLogged = true;
-            }
-
-            GameEventLogManager.AddLog(EntryPoint.Settings.Language.CHECKING_UPDATE);
             JsonConverter converter = new();
             Version latestVersion = converter.Deserialize<Version>(request.downloadHandler.GetText());
             if (latestVersion.internalVersion > PluginInfo.PLUGIN_INTERNAL_VERSION)
@@ -30,6 +23,13 @@ namespace MagicRinObserver.Managers
 
         public static void CheckUpdate()
         {
+            if (!isLogged)
+            {
+                GameEventLogManager.AddLog(string.Format(EntryPoint.Settings.Language.CURRENT_VERSION, PluginInfo.PLUGIN_VERSION));
+                isLogged = true;
+            }
+            GameEventLogManager.AddLog(EntryPoint.Settings.Language.CHECKING_UPDATE);
+
             HttpHelper.Get(CheckUpdateURL, new Action<UnityWebRequest>(delegate (UnityWebRequest request)
             {
                 DoCheckUpdate(request);

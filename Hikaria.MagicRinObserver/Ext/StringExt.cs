@@ -1,6 +1,6 @@
-﻿namespace MagicRinObserver.Ext
+﻿namespace Hikaria.MagicRinObserver.Ext
 {
-    internal static class StringExtension
+    internal static class StringExt
     {
         public static string[] SplitByLength(this string str, int length)
         {

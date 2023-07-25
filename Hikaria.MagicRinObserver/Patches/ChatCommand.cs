@@ -1,9 +1,9 @@
-﻿using MagicRinObserver.Managers;
-using MagicRinObserver.Utils;
+﻿using Hikaria.MagicRinObserver.Managers;
+using Hikaria.MagicRinObserver.Utils;
 using SNetwork;
 using System;
 
-namespace MagicRinObserver.Patches
+namespace Hikaria.MagicRinObserver.Patches
 {
     internal class ChatCommand : Patch
     {
@@ -45,7 +45,7 @@ namespace MagicRinObserver.Patches
                 catch (Exception ex)
                 {
                     Logs.LogError(ex.Message);
-                    Logs.LogError(string.Format("输入信息:" , text));
+                    Logs.LogError(string.Format("输入信息: {0}" , text));
                     GameEventLogManager.AddLog(EntryPoint.Settings.Language.COMMAND_WRONG_INPUT);
                     GameEventLogManager.AddLog(EntryPoint.Settings.Language.COMMAND_LIST);
                 }

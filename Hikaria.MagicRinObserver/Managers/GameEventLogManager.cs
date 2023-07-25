@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using CellMenu;
-using MagicRinObserver.Ext;
+using Hikaria.MagicRinObserver.Ext;
+using Hikaria.MagicRinObserver.Utils;
 using UnityEngine;
 
-namespace MagicRinObserver.Managers
+namespace Hikaria.MagicRinObserver.Managers
 {
     internal sealed class GameEventLogManager : MonoBehaviour
     {
@@ -22,16 +23,23 @@ namespace MagicRinObserver.Managers
             }
             if (_gameEventLogs.Count > 0)
             {
-                _playerLayerGameEventLog.AddLogItem(_gameEventLogs.Peek(), eGameEventChatLogType.GameEvent);
-                _pageLoadoutGameEventLog.AddLogItem(_gameEventLogs.Peek(), eGameEventChatLogType.GameEvent);
-                _gameEventLogs.Dequeue();
+                string log;
+                lock (_gameEventLogs)
+                {
+                    log = _gameEventLogs.Dequeue();
+                }
+                _playerLayerGameEventLog.AddLogItem(log, eGameEventChatLogType.GameEvent);
+                _pageLoadoutGameEventLog.AddLogItem(log, eGameEventChatLogType.GameEvent);
                 _interval = 0.5f;
             }
         }
 
         public static void AddLog(string log)
         {
-            Instance._gameEventLogs.Enqueue(log);
+            lock (Instance._gameEventLogs)
+            {
+                Instance._gameEventLogs.Enqueue(log);
+            }
         }
 
         public static void AddLog(string[] logs)

@@ -1,4 +1,4 @@
-﻿namespace MagicRinObserver.Utils
+﻿namespace Hikaria.MagicRinObserver.Utils
 {
     internal static class Logs
     {

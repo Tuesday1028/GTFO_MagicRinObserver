@@ -3,7 +3,7 @@ using System.Collections;
 using BepInEx.Unity.IL2CPP.Utils;
 using UnityEngine;
 
-namespace MagicRinObserver.Utils
+namespace Hikaria.MagicRinObserver.Utils
 {
     internal static class HttpHelper
     {
@@ -29,7 +29,7 @@ namespace MagicRinObserver.Utils
                 request.Dispose();
                 yield break;
             }
-            OnSuccess(request);
+            OnSuccess?.Invoke(request);
             request.Dispose();
         }
     }
