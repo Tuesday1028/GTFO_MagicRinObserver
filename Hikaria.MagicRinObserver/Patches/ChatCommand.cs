@@ -7,7 +7,7 @@ namespace Hikaria.MagicRinObserver.Patches
 {
     internal class ChatCommand : Patch
     {
-        public override string Name { get; } = "ChatCommand";
+        public override string PatchName => "ChatCommand";
 
         public static ChatCommand Instance { get; private set; }
 
@@ -28,7 +28,7 @@ namespace Hikaria.MagicRinObserver.Patches
 
         private static void PlayerChatManager__PostMessage__Prefix(PlayerChatManager __instance)
         {
-            string text = __instance.m_currentValue;
+            string text = __instance.m_currentValue.ToLower();
             if (text.StartsWith(_prefix))
             {
                 try

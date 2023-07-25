@@ -9,7 +9,7 @@ namespace Hikaria.MagicRinObserver.Patches
 {
     internal class EnemyWakeup : Patch
     {
-        public override string Name { get; } = "EnemyWakeup";
+        public override string PatchName => "EnemyWakeup";
 
         public static EnemyWakeup Instance { get; private set; }
 

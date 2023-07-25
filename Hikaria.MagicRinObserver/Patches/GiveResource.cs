@@ -13,7 +13,7 @@ namespace Hikaria.MagicRinObserver.Patches
 {
     internal class GiveResource : Patch
     {
-        public override string Name { get; } = "GiveResource";
+        public override string PatchName => "GiveResource";
 
         public static GiveResource Instance { get; private set; }
 

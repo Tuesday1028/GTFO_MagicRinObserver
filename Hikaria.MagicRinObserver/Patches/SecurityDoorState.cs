@@ -8,7 +8,7 @@ namespace Hikaria.MagicRinObserver.Patches
 {
     internal class SecurityDoorState : Patch
     {
-        public override string Name { get; } = "SecurityDoorState";
+        public override string PatchName => "SecurityDoorState";
 
         public static SecurityDoorState Instance { get; private set; }
 
@@ -41,38 +41,38 @@ namespace Hikaria.MagicRinObserver.Patches
                 SNet.Replication.TryGetLastSender(out fromPlayer);
             }
             string zone = door.LinkedToZoneData.Alias.ToString();
-            if (interaction.type == eDoorInteractionType.ActivateChainedPuzzle)
+            switch (interaction.type)
             {
-                if (interaction.isPlayerIntertaction || localInteract || !string.IsNullOrEmpty(fromPlayer.NickName))
-                {
-                    ChatManager.AddQueueInSeparate(string.Format(EntryPoint.Settings.DoorStateSecurityDoorActivatedByPlayerText, fromPlayer.NickName, zone));
-                }
-                else
-                {
-                    ChatManager.AddQueueInSeparate(string.Format(EntryPoint.Settings.DoorStateSecurityDoorActivatedText, zone));
-                }
-            }
-            else if (interaction.type == eDoorInteractionType.Open)
-            {
-                if (interaction.isPlayerIntertaction || localInteract || !string.IsNullOrEmpty(fromPlayer.NickName))
-                {
-                    ChatManager.AddQueueInSeparate(string.Format(EntryPoint.Settings.DoorStateSecurityDoorOpenedByPlayerText, fromPlayer.NickName, zone));
-                }
-                else
-                {
-                    ChatManager.AddQueueInSeparate(string.Format(EntryPoint.Settings.DoorStateSecurityDoorOpenedText, zone));
-                }
-            }
-            else if (interaction.type == eDoorInteractionType.Close)
-            {
-                if (interaction.isPlayerIntertaction || localInteract || !string.IsNullOrEmpty(fromPlayer.NickName))
-                {
-                    ChatManager.AddQueueInSeparate(string.Format(EntryPoint.Settings.DoorStateSecurityDoorClosedByPlayerText, fromPlayer.NickName, zone));
-                }
-                else
-                {
-                    ChatManager.AddQueueInSeparate(string.Format(EntryPoint.Settings.DoorStateSecurityDoorClosedText, zone));
-                }
+                case eDoorInteractionType.ActivateChainedPuzzle:
+                    if (localInteract || (interaction.isPlayerIntertaction && !string.IsNullOrEmpty(fromPlayer.NickName)))
+                    {
+                        ChatManager.AddQueueInSeparate(string.Format(EntryPoint.Settings.DoorStateSecurityDoorActivatedByPlayerText, fromPlayer.NickName, zone));
+                    }
+                    else
+                    {
+                        ChatManager.AddQueueInSeparate(string.Format(EntryPoint.Settings.DoorStateSecurityDoorActivatedText, zone));
+                    }
+                    break;
+                case eDoorInteractionType.Open:
+                    if (localInteract || (interaction.isPlayerIntertaction && !string.IsNullOrEmpty(fromPlayer.NickName)))
+                    {
+                        ChatManager.AddQueueInSeparate(string.Format(EntryPoint.Settings.DoorStateSecurityDoorOpenedByPlayerText, fromPlayer.NickName, zone));
+                    }
+                    else
+                    {
+                        ChatManager.AddQueueInSeparate(string.Format(EntryPoint.Settings.DoorStateSecurityDoorOpenedText, zone));
+                    }
+                    break;
+                case eDoorInteractionType.Close:
+                    if (localInteract || (interaction.isPlayerIntertaction && !string.IsNullOrEmpty(fromPlayer.NickName)))
+                    {
+                        ChatManager.AddQueueInSeparate(string.Format(EntryPoint.Settings.DoorStateSecurityDoorClosedByPlayerText, fromPlayer.NickName, zone));
+                    }
+                    else
+                    {
+                        ChatManager.AddQueueInSeparate(string.Format(EntryPoint.Settings.DoorStateSecurityDoorClosedText, zone));
+                    }
+                    break;
             }
             localInteract = false;
         }

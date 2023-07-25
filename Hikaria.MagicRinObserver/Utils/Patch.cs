@@ -21,7 +21,7 @@ namespace Hikaria.MagicRinObserver.Utils
             }
         }
 
-        public abstract string Name { get; }
+        public abstract string PatchName { get; }
 
         public abstract void Execute();
 
@@ -143,7 +143,7 @@ namespace Hikaria.MagicRinObserver.Utils
             t2.Initialize();
             if (t2.Enabled)
             {
-                Logs.LogMessage(string.Format(EntryPoint.Settings.Language.PATCHING, t2.Name));
+                Logs.LogMessage(string.Format(EntryPoint.Settings.Language.PATCHING, t2.PatchName));
                 t2.Execute();
             }
             RegisteredPatches[typeof(T)] = t2;

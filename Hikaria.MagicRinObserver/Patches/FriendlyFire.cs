@@ -9,7 +9,7 @@ namespace Hikaria.MagicRinObserver.Patches
 {
     internal class FriendlyFire : Patch
     {
-        public override string Name { get; } = "FriendlyFire";
+        public override string PatchName => "FriendlyFire";
 
         public static FriendlyFire Instance { get; private set; }
 

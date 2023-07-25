@@ -9,7 +9,7 @@ namespace Hikaria.MagicRinObserver.Patches
 {
     internal class PlayerJoinLobby : Patch
     {
-        public override string Name { get; } = "PlayerJoinLobby";
+        public override string PatchName => "PlayerJoinLobby";
 
         public static PlayerJoinLobby Instance { get; private set; }
 

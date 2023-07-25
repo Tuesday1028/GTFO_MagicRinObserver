@@ -8,7 +8,7 @@ namespace Hikaria.MagicRinObserver.Patches
 {
     internal class PlayerSlip : Patch
     {
-        public override string Name { get; } = "PlayerSlip";
+        public override string PatchName => "PlayerSlip";
 
         public static PlayerSlip Instance { get; private set; }
 
