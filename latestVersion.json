@@ -1,5 +1,5 @@
 {
-  "internalVersion": 10004,
-  "version": "1.5.2",
-  "changeLog": "1. BUG 修复\\2. 新增功能: 敌人击杀伤害统计"
+  "internalVersion": 10006,
+  "version": "1.5.3",
+  "changeLog": "1. BUG 修复: 空间传送后象限不被清理"
 }
