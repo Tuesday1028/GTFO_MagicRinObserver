@@ -44,7 +44,7 @@ namespace Hikaria.MagicRinObserver.Patches
             switch (interaction.type)
             {
                 case eDoorInteractionType.ActivateChainedPuzzle:
-                    if (localInteract || (interaction.isPlayerIntertaction && !string.IsNullOrEmpty(fromPlayer.NickName)))
+                    if (localInteract || !string.IsNullOrEmpty(fromPlayer.NickName))
                     {
                         ChatManager.AddQueueInSeparate(string.Format(EntryPoint.Settings.DoorStateSecurityDoorActivatedByPlayerText, fromPlayer.NickName, zone));
                     }
@@ -54,7 +54,7 @@ namespace Hikaria.MagicRinObserver.Patches
                     }
                     break;
                 case eDoorInteractionType.Open:
-                    if (localInteract || (interaction.isPlayerIntertaction && !string.IsNullOrEmpty(fromPlayer.NickName)))
+                    if (localInteract || !string.IsNullOrEmpty(fromPlayer.NickName))
                     {
                         ChatManager.AddQueueInSeparate(string.Format(EntryPoint.Settings.DoorStateSecurityDoorOpenedByPlayerText, fromPlayer.NickName, zone));
                     }
@@ -64,7 +64,7 @@ namespace Hikaria.MagicRinObserver.Patches
                     }
                     break;
                 case eDoorInteractionType.Close:
-                    if (localInteract || (interaction.isPlayerIntertaction && !string.IsNullOrEmpty(fromPlayer.NickName)))
+                    if (localInteract || !string.IsNullOrEmpty(fromPlayer.NickName))
                     {
                         ChatManager.AddQueueInSeparate(string.Format(EntryPoint.Settings.DoorStateSecurityDoorClosedByPlayerText, fromPlayer.NickName, zone));
                     }
